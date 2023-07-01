@@ -1,6 +1,6 @@
 import Contacts from '../../components/personal-card/elements/Contacts';
 
-export type ContactType = 'tg' | 'mail' | 'twitter' | 'github' | 'linkedin' | 'twitch';
+export type ContactType = 'tg' | 'mail' | 'twitter' | 'github' | 'linkedin' | 'twitch' | 'mastodon';
 
 export interface Contact {
   id: string;
@@ -15,7 +15,8 @@ const typeToFormer: MapType = {
   twitter: (id) => `https://twitter.com/${id}`,
   github: (id) => `https://github.com/${id}`,
   linkedin: (id) => `https://linkedin.com/in/${id}`,
-  twitch: (id) => `https://www.twitch.tv/${id}`
+  twitch: (id) => `https://www.twitch.tv/${id}`,
+  mastodon: (id) => `https://mastodon.social/${id}`
 };
 
 export function contactToLink(contact: Contact): string {

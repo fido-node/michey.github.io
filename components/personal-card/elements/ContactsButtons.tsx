@@ -6,7 +6,8 @@ import {
   faGithub,
   faLinkedin,
   faTwitch,
-  faTelegramPlane
+  faTelegramPlane,
+  faMastodon,
 } from '@fortawesome/free-brands-svg-icons';
 
 import { IconDefinition, IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
@@ -23,21 +24,30 @@ const typeToIcon: { [key in ContactType]: [IconDefinition, string?] } = {
   twitter: [faTwitter],
   github: [faGithub],
   linkedin: [faLinkedin],
-  twitch: [faTwitch]
+  twitch: [faTwitch],
+  mastodon: [faMastodon],
 };
 
 const ContactComp = ({ id, type }: Contact) => {
   const iconDescr = typeToIcon[type];
-  return (
-    <div className={'p-3'}>
-      <a
-        className={'text-5xl text-gray-500' + ' ' + iconDescr[1]}
-        href={contactToLink({ id, type })}
-        target="_blank">
-        <FontAwesomeIcon key={type} icon={iconDescr[0]} />
-      </a>
-    </div>
-  );
+
+  if (type == 'mastodon') {
+    return (
+      <div className={'p-3'}>
+        <a rel="me" className={'text-5xl text-gray-500' + ' ' + iconDescr[1]} href={contactToLink({ id, type })} target="_blank">
+          <FontAwesomeIcon key={type} icon={iconDescr[0]} />
+        </a>
+      </div>
+    );
+  } else {
+    return (
+      <div className={'p-3'}>
+        <a className={'text-5xl text-gray-500' + ' ' + iconDescr[1]} href={contactToLink({ id, type })} target="_blank">
+          <FontAwesomeIcon key={type} icon={iconDescr[0]} />
+        </a>
+      </div>
+    );
+  }
 };
 
 export default ({ contacts }: Props) => (
