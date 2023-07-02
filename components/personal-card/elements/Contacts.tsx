@@ -6,14 +6,14 @@ import ContactsButtons from './ContactsButtons';
 type Props = {};
 const contactMe: Contact[] = [
   { id: 'fido_node', type: 'tg' },
-  { id: 'aleksandr.mihailov@pm.me', type: 'mail' },
+  { id: 'iam@fidonode.me', type: 'mail' },
 ];
 
 const socialButtons: Contact[] = [
-  { id: 'fido_node', type: 'twitter' },
-  { id: 'michey', type: 'github' },
-  { id: 'alex-mihailov-870448187', type: 'linkedin' },
   { id: '@fido_node', type: 'mastodon' },
+  { id: 'alex-mihailov-870448187', type: 'linkedin' },
+  { id: 'michey', type: 'github' },
+  { id: 'fido_node', type: 'twitter' },
 ];
 
 export default ({}: Props) => (
